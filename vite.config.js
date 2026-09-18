@@ -1,4 +1,6 @@
 import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 
 export default defineConfig({
   css: {
@@ -20,5 +22,24 @@ export default defineConfig({
     },
   },
 
-  assetsInclude: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.webp'],
+  plugins: [
+    ViteImageOptimizer({
+      exclude: /spritemap\.svg$/,
+      png: {
+        quality: 80,
+      },
+      jpeg: {
+        quality: 80,
+      },
+      webp: {
+        lossless: true,
+      },
+      svg: {
+        multipass: true,
+      },
+    }),
+    svgSpritemap({
+      pattern: 'src/assets/svg/*.svg',
+    }),
+  ],
 });
