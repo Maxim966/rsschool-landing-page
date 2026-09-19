@@ -1,0 +1,40 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.hero {
+  &__container {
+    background-image: url('../../assets/images/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    padding: 100px;
+  }
+
+  &__content {
+    @include flex($direction: column, $gap: 40px);
+    max-width: 530px;
+  }
+
+  &__title {
+    @include heading-1;
+    color: $text-inverse;
+  }
+
+  &__word {
+    @include heading-1($is-accent: true);
+    color: $text-accent;
+  }
+
+  &__descr {
+    @include body-medium;
+    color: $text-inverse;
+  }
+  &__button {
+    @include action-link;
+    padding: 20px 78px;
+    background: $text-inverse;
+    border-radius: 100px;
+    max-width: fit-content;
+  }
+}
