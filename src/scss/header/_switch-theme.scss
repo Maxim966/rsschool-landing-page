@@ -1,0 +1,36 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.switch-theme {
+
+  &__button {
+    @include flex($align: center, $justify: center);
+    width: 36px;
+    height: 36px;
+    border-radius: 100px;
+
+    &--light.active {
+      background-color: $text-accent;
+    }
+
+    &--dark.active {
+      background-color: $text-accent;
+    }
+  }
+
+  &__button:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &__icon {
+    &-light {
+      height: 22px;
+      width: 22px;
+    }
+
+    &-dark {
+      height: 18px;
+      width: 18px;
+    }
+  }
+}

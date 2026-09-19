@@ -4,9 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee-House</title>
+    <link rel="stylesheet" href="/src/scss/style.scss" />
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <div class="container">
+        <div class="header__container">
+          <a href="#" class="logo">
+            <img src="./src/assets/svg/logo.svg" alt="logo">
+          </a>
+          <nav class="header__nav nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  Favorite coffee
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  About
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  Mobile app
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  Contact us
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__actions">
+            <div class="header__switch-theme switch-theme">
+              <button class="switch-theme__button switch-theme__button--light active">
+                <svg class="switch-theme__icon-light">
+                  <use href="/spritemap.svg#Sun"></use>
+                </svg>
+              </button>
+              <button class="switch-theme__button switch-theme__button--dark">
+                <svg class="switch-theme__icon-dark">
+                  <use href="/spritemap.svg#Moon"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="header__coffee-menu">
+              <a href="#menu" class="header__coffee-menu-link">
+                <span>Menu</span>
+                <svg class="header__coffee-menu--icon">
+                  <use href="/spritemap.svg#coffee-cup"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

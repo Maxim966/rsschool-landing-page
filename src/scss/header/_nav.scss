@@ -1,0 +1,15 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+.nav {
+    padding-right: 45px;
+    padding-bottom: 2px;
+  &__list {
+    @include flex($justify: center, $gap: 42px);
+    width: 100%;
+  }
+
+  &__link {
+    @include action-link;
+  }
+}
+

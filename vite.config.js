@@ -40,6 +40,7 @@ export default defineConfig({
     }),
     svgSpritemap({
       pattern: 'src/assets/svg/*.svg',
+      svgo: false,
     }),
   ],
 });

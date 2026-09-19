@@ -1,0 +1,38 @@
+@forward '_nav.scss';
+@forward '_switch-theme.scss';
+@use '../variables' as *;
+@use '../mixins' as *;
+
+
+
+.header {
+  &__container {
+    @include flex($align: center, $justify: space-between);
+    margin: 20px 0;
+  }
+
+  &__switch-theme {
+    @include flex($align: center);
+    border: 1px solid $border-primary;
+    border-radius: 100px;
+    padding: 4px;
+    width: 88px;
+  }
+
+  &__coffee-menu {
+    width: 72px;
+    padding-bottom: 5px;
+    &-link {
+      @include action-link;
+      @include flex($justify: space-between)
+    }
+    &--icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__actions {
+    @include flex($align: center, $gap: 24px);
+  }
+}

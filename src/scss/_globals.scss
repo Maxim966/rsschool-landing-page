@@ -8,6 +8,7 @@
 body {
 	font-family: $font-family;
 	font-size: $size-main-text;
+	background: $text-inverse;
 }
 
 a {
@@ -24,6 +25,7 @@ button {
 	cursor: pointer;
 	border: none;
 	text-transform: uppercase;
+	background: transparent;
 }
 
 ul {
