@@ -1,0 +1,32 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.contacts {
+  @include flex($direction: column, $gap: 40px);
+  &__list {
+      @include flex($direction: column, $gap: 25px);
+  }
+
+  &__item {
+    display: flex;
+  }
+  &__title {
+    @include heading-3;
+    color: $text-inverse;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__info {
+      @include flex($align: center, $gap: 10px);
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

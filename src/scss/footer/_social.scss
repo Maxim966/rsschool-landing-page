@@ -1,0 +1,26 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.social {
+    &__image {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__link {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__list {
+    @include flex( $gap: 12px);
+  }
+
+  &__item {
+    @include flex($justify: center, $align: center);
+    border: 1px solid $border-primary;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+  }
+}
