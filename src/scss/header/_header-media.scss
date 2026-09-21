@@ -1,0 +1,24 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+@include lg {
+  .header {
+    &__coffee-menu {
+      display: none;
+    }
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .switch-theme {
+    width: 104px;
+    &__button {
+    width: 44px;
+    height: 40px;
+  }
+
+}
+}

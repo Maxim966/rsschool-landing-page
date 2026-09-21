@@ -23,14 +23,6 @@
     overflow: hidden;
     border-radius: 20px;
 
-    &--large-left {
-      grid-row: span 2;
-    }
-
-    &--large-right {
-      grid-row: span 2;
-    }
-
     &:nth-child(1) {
       grid-column: 1;
       grid-row: 1;

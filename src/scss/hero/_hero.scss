@@ -37,5 +37,11 @@
     background: $text-inverse;
     border-radius: 100px;
     max-width: fit-content;
+
+    &--icon {
+      display: none;
+      width: 20px;
+      height: 20px;
+    }
   }
 }

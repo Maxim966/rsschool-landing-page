@@ -12,5 +12,9 @@
 @forward '_breakpoints';
 
 @import 'modern-normalize/modern-normalize.css';
+@import 'header/header-media';
 @import 'hero/hero-media';
+@import 'about/about-media';
+@import 'mobile-app/mobile-app-media';
+@import 'menu/menu-media';
 @import 'footer/footer-media';

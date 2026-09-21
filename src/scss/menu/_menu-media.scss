@@ -1,0 +1,11 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+@include xl {
+  .menu {
+    &__title {
+      max-width: 100%;
+    }
+  }
+}

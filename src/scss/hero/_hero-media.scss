@@ -10,3 +10,17 @@
     }
 	}
 }
+
+@include lg {
+  .hero {
+    &__button {
+      display: flex;
+      gap: 7px;
+      padding: 20px 66px;
+
+      &--icon {
+        display: flex;
+      }
+    }
+  }
+}

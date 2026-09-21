@@ -1,5 +1,6 @@
 @forward '_nav.scss';
 @forward '_switch-theme.scss';
+@forward './burger';
 @use '../variables' as *;
 @use '../mixins' as *;
 
