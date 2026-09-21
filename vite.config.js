@@ -5,6 +5,11 @@ import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 export default defineConfig({
   css: {
     devSourcemap: true,
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['import'],
+      },
+    },
   },
 
   build: {

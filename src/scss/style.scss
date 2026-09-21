@@ -9,5 +9,8 @@
 @forward 'mobile-app/mobile-app';
 @forward 'footer/footer';
 @forward 'menu/menu';
+@forward '_breakpoints';
 
 @import 'modern-normalize/modern-normalize.css';
+@import 'hero/hero-media';
+@import 'footer/footer-media';

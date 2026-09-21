@@ -1,0 +1,11 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+@include xl {
+	.footer {
+    &__container {
+      padding: 100px 60px;
+    }
+	}
+}

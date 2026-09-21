@@ -2,8 +2,9 @@
 @use '../mixins' as *;
 
 .card {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
 
   &__title {
@@ -16,6 +17,7 @@
     border-radius: 40px;
     @include flex($direction: column);
     overflow: hidden;
+    width: 310px;
 
     &-content {
       @include flex($direction: column);
