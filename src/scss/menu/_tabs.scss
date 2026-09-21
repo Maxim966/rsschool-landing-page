@@ -1,0 +1,34 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.tabs {
+  @include flex($justify: center, $gap: 16px);
+  &__button {
+    @include flex($align: center, $gap: 8px);
+    @include action-link;
+    text-transform: none;
+    border: 1px solid $border-primary;
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+
+    &--active {
+      background-color: $background-container;
+      color: $text-inverse;
+      border: none;
+      .tabs__icon {
+        background: $text-inverse;
+      }
+
+    }
+  }
+
+  
+
+  &__icon {
+    @include flex($align: center, $justify: center);
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    background: $border-primary;
+  }
+}

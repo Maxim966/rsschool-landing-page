@@ -1,0 +1,22 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@forward './tabs';
+@forward './card';
+
+.menu {
+  margin-bottom: 100px;
+  &__title {
+    @include heading-2;
+    text-align: center;
+    max-width: 56%;
+  }
+
+  &__container {
+    @include flex($direction: column, $align: center, $gap: 40px);
+  }
+
+  &__word {
+    @include heading-2($is-accent: true);
+    color: $text-accent;
+  }
+}
