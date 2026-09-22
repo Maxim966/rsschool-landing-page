@@ -14,3 +14,9 @@
   padding-right: $container-padding-mobile;
   }
 }
+
+@include xs {
+	.container {
+		width: 380px;
+	}
+}
