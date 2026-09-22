@@ -8,4 +8,12 @@
       max-width: 100%;
     }
   }
+
+  @include sm {
+      .card {
+        &__item {
+          width: 100%;
+        }
+    }
+  }
 }
