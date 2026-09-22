@@ -25,7 +25,11 @@
     padding-bottom: 5px;
     &-link {
       @include action-link;
-      @include flex($justify: space-between)
+      @include flex($justify: space-between);
+
+      &--active {
+        pointer-events: none;
+      }
     }
     &--icon {
       width: 20px;
