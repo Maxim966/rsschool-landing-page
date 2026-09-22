@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
 
 .switch-theme {
 
@@ -8,6 +9,7 @@
     width: 36px;
     height: 36px;
     border-radius: 100px;
+    transition: background-color .3s ease;
 
     &--light.active {
       background-color: $text-accent;
@@ -16,7 +18,25 @@
     &--dark.active {
       background-color: $text-accent;
     }
+
+
+      @include hoverDevice {
+    &--dark:hover {
+      background-color: $dark-border-primary;
+      .switch-theme__icon-dark {
+        fill: $text-inverse;
+      }
+    }
+
+    &--light:hover {
+      background-color: $text-accent;
+      .switch-theme__icon-light {
+        fill: $text-inverse;
+      }
+    }
   }
+  }
+
 
   &__button:not(:last-child) {
     margin-right: 8px;
@@ -24,13 +44,17 @@
 
   &__icon {
     &-light {
+      transition: fill .3s ease;
       height: 22px;
       width: 22px;
+      fill: $text-inverse;
     }
 
     &-dark {
+      transition: fill .3s ease;
       height: 18px;
       width: 18px;
+      fill:$text-primary;
     }
   }
 }

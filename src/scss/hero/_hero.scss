@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
 
 .hero {
   margin-bottom: 100px;
@@ -37,11 +38,27 @@
     background: $text-inverse;
     border-radius: 100px;
     max-width: fit-content;
+    position: relative;
 
     &--icon {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
       width: 20px;
       height: 20px;
+      right: 50px;
+      top: 20px;
+      position: absolute;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+
+    @include hoverDevice {
+      &:hover {
+        .hero__button--icon {
+        visibility:visible;
+        opacity: 1;
+      }
+      }
     }
   }
 }

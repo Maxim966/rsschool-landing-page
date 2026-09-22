@@ -1,5 +1,7 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
+
 .nav {
     padding-right: 45px;
     padding-bottom: 2px;
@@ -10,6 +12,26 @@
 
   &__link {
     @include action-link;
+    position: relative;
+
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      border-bottom: 2px solid $text-primary;
+      width: 100%;
+      height: 0;
+      transform: translateX(0) scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    @include hoverDevice {
+    &:hover::after {
+        transform: translateX(0) scaleX(1);
+      }
+  }
   }
 }
 

@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
 
 .card {
   display: flex;
@@ -23,6 +24,14 @@
       @include flex($direction: column);
       padding: 20px;
       flex-grow: 1;
+    }
+
+    @include hoverDevice {
+      &:hover {
+        .card__image {
+          transform: scale(1);
+        }
+      }
     }
   }
 
@@ -49,5 +58,6 @@
     display: block;
     transform: scale(1.1);
     transform-origin: center center;
+    transition: transform .3s ease;
   }
 }

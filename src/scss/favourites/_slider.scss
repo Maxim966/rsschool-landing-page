@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
 
 .slider {
   @include flex($justify: center);
@@ -48,6 +49,15 @@
     border-radius: 100px;
     width: 60px;
     height: 60px;
+    color: $background-container;
+    transition: background-color .3s ease, color .3s ease;
+
+    @include hoverDevice {
+      &:hover {
+        background-color: $background-container;
+        color: $text-inverse;
+      }
+    }
   }
   &__prev {
       transform: rotate(180deg);

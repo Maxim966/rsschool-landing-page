@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../mixins' as *;
+@use '../breakpoints' as *;
 
 .tabs {
   @include flex($justify: center, $gap: 16px);
@@ -10,15 +11,27 @@
     border: 1px solid $border-primary;
     border-radius: 100px;
     padding: 8px 16px 8px 8px;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
 
     &--active {
       background-color: $background-container;
       color: $text-inverse;
-      border: none;
+      border-color: $background-container;
+      pointer-events: none;
       .tabs__icon {
         background: $text-inverse;
       }
+    }
 
+    @include hoverDevice {
+      &:hover {
+        background-color: $background-container;
+        color: $text-inverse;
+        border-color: $background-container;
+        .tabs__icon {
+          background: $text-inverse;
+        }
+      }
     }
   }
 

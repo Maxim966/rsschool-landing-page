@@ -17,15 +17,19 @@
       display: flex;
       gap: 7px;
       padding: 20px 66px;
+      min-width: 200px;
 
       &--icon {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        right: 64px;
+        top: 23px;
       }
     }
   }
 }
 
-@include md {
+@include mb {
   .hero {
     &__container {
       padding: 60px 16px;
