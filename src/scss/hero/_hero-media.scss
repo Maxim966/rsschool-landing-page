@@ -24,3 +24,11 @@
     }
   }
 }
+
+@include md {
+  .hero {
+    &__container {
+      padding: 60px 16px;
+    }
+  }
+}

@@ -35,3 +35,11 @@
     }
   }
 }
+
+@include md {
+  .about {
+    &__image {
+      transform: scale(1.24);
+    }
+  }
+}

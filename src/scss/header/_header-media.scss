@@ -18,7 +18,14 @@
     &__button {
     width: 44px;
     height: 40px;
-  }
-
+    }
+  }  
 }
+
+@include mb {
+  .header {
+    &__actions {
+      gap: 12px;
+    }
+  }
 }

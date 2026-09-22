@@ -18,3 +18,16 @@
     }
 	}
 }
+
+@include mb {
+  .footer {
+    &__container {
+      padding: 60px 16px;
+      gap: 40px;
+    }
+
+    &__title {
+      max-width: 85%;
+    }
+  }
+}
