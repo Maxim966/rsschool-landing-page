@@ -3,6 +3,8 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { svgSpritemap } from 'vite-plugin-svg-spritemap';
 
 export default defineConfig({
+  base: '/rsschool-landing-page/',
+
   css: {
     devSourcemap: true,
     preprocessorOptions: {
@@ -19,6 +21,10 @@ export default defineConfig({
     cssMinify: false,
 
     rollupOptions: {
+      input: {
+        main: 'index.html',
+        menu: 'menu.html',
+      },
       output: {
         entryFileNames: 'assets/[name].js',
         chunkFileNames: 'assets/[name].js',
