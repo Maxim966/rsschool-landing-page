@@ -22,7 +22,7 @@
 
       @include hoverDevice {
     &--dark:hover {
-      background-color: $dark-border-primary;
+      background-color: $border-primary;
       .switch-theme__icon-dark {
         fill: $text-inverse;
       }
@@ -47,14 +47,14 @@
       transition: fill .3s ease;
       height: 22px;
       width: 22px;
-      fill: $text-inverse;
+      color: $text-inverse;
     }
 
     &-dark {
       transition: fill .3s ease;
       height: 18px;
       width: 18px;
-      fill:$text-primary;
+      color: $text-primary;
     }
   }
 }

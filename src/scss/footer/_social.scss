@@ -22,6 +22,11 @@
         .social__image {
           color: $text-primary;
         }
+
+        html[data-theme='dark'] & {
+          color: $text-inverse;
+          background-color: $background-page;
+        }
       }
     }
   }
@@ -40,6 +45,10 @@
     @include hoverDevice {
       &:hover {
         border-color: $text-inverse;
+
+        html[data-theme='dark'] & {
+          border-color: $dark-border-primary;
+        }
       }
     }
   }

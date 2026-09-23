@@ -50,12 +50,21 @@
     width: 60px;
     height: 60px;
     color: $background-container;
-    transition: background-color .3s ease, color .3s ease;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+
+    html[data-theme='dark'] & {
+      border-color: $text-inverse;
+      color: $text-inverse;
+    }
 
     @include hoverDevice {
       &:hover {
         background-color: $background-container;
         color: $text-inverse;
+
+        html[data-theme='dark'] & {
+          border-color: $background-container;
+        }
       }
     }
   }
@@ -89,6 +98,14 @@
 
     &--active {
       background-color: $background-container;
+    }
+
+    html[data-theme='dark'] & {
+      background-color: $border-primary;
+
+      &--active {
+        background-color: $dark-border-inverse;
+      }
     }
   }
 }

@@ -27,6 +27,14 @@
       left: 12px;
     }
   }
+
+  html[data-theme='dark'] & {
+    border-color: $text-inverse;
+
+    &__line {
+      background-color: $text-inverse;
+    }
+  }
 }
 @include lg {
   .burger {

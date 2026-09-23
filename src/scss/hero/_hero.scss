@@ -35,7 +35,8 @@
   &__button {
     @include action-link;
     padding: 20px 78px;
-    background: $text-inverse;
+    color: $hero-button-text;
+    background: $hero-button-background;
     border-radius: 100px;
     max-width: fit-content;
     position: relative;
@@ -48,6 +49,7 @@
       right: 50px;
       top: 20px;
       position: absolute;
+      color: $hero-button-text;
       transition: opacity .3s ease, visibility .3s ease;
     }
 
