@@ -1,0 +1,55 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+.social {
+    &__image {
+    width: 24px;
+    height: 24px;
+    color: $text-inverse;
+  }
+
+  &__link {
+    @include flex($justify: center, $align: center);
+    width: 60px;
+    height: 60px;
+    transition: background-color .3s ease, color .3s ease;
+
+    @include hoverDevice {
+      &:hover {
+        background-color: $text-inverse;
+
+        .social__image {
+          color: $text-primary;
+        }
+
+        html[data-theme='dark'] & {
+          color: $text-inverse;
+          background-color: $background-page;
+        }
+      }
+    }
+  }
+
+  &__list {
+    @include flex( $gap: 12px);
+  }
+
+  &__item {
+    border: 1px solid $border-primary;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+
+    @include hoverDevice {
+      &:hover {
+        border-color: $text-inverse;
+
+        html[data-theme='dark'] & {
+          border-color: $dark-border-primary;
+        }
+      }
+    }
+  }
+}

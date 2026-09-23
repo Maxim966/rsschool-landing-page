@@ -1,0 +1,40 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+
+@include lg {
+  .mobile-app {
+    &__container {
+      flex-direction: column;
+    }
+    &__content {
+    max-width: 100%;
+  }
+
+  &__title {
+    max-width: 80%;
+  }
+
+  &__image {
+    display: flex;
+    align-self: center;
+    }
+  }
+}
+
+@include mb {
+  .mobile-app {
+
+    &__container {
+      gap: 40px;
+    }
+    &__title {
+      max-width: 90%;
+    }
+
+    &__buttons {
+      flex-direction: column;
+    }
+  }
+}

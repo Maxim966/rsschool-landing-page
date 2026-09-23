@@ -1,0 +1,66 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+.hero {
+  margin-bottom: 100px;
+  &__container {
+    background-image: url('../../assets/images/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+    padding: 100px;
+  }
+
+  &__content {
+    @include flex($direction: column, $gap: 40px);
+    max-width: 530px;
+  }
+
+  &__title {
+    @include heading-1;
+    color: $text-inverse;
+  }
+
+  &__word {
+    @include heading-1($is-accent: true);
+    color: $text-accent;
+  }
+
+  &__descr {
+    @include body-medium;
+    color: $text-inverse;
+  }
+  &__button {
+    @include action-link;
+    padding: 20px 78px;
+    color: $hero-button-text;
+    background: $hero-button-background;
+    border-radius: 100px;
+    max-width: fit-content;
+    position: relative;
+
+    &--icon {
+      opacity: 0;
+      visibility: hidden;
+      width: 20px;
+      height: 20px;
+      right: 50px;
+      top: 20px;
+      position: absolute;
+      color: $hero-button-text;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+
+    @include hoverDevice {
+      &:hover {
+        .hero__button--icon {
+        visibility:visible;
+        opacity: 1;
+      }
+      }
+    }
+  }
+}

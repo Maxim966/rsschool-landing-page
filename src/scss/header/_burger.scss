@@ -1,0 +1,43 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+.burger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  border: 1px solid $background-container;
+
+  &__line {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: $background-container;
+    border-radius: 2px;
+
+    &:nth-child(1) {
+      top: 24px;
+      left: 12px;
+    }
+
+    &:nth-child(2) {
+      top: 16px;
+      left: 12px;
+    }
+  }
+
+  html[data-theme='dark'] & {
+    border-color: $text-inverse;
+
+    &__line {
+      background-color: $text-inverse;
+    }
+  }
+}
+@include lg {
+  .burger {
+    display: flex;
+  }
+}

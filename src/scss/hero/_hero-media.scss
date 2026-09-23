@@ -1,0 +1,38 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+
+@include xl {
+	.hero {
+    &__container {
+      padding: 100px 60px;
+    }
+	}
+}
+
+@include lg {
+  .hero {
+    &__button {
+      display: flex;
+      gap: 7px;
+      padding: 20px 66px;
+      min-width: 200px;
+
+      &--icon {
+        opacity: 1;
+        visibility: visible;
+        right: 64px;
+        top: 23px;
+      }
+    }
+  }
+}
+
+@include mb {
+  .hero {
+    &__container {
+      padding: 60px 16px;
+    }
+  }
+}

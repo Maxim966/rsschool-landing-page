@@ -1,0 +1,29 @@
+@forward './apps';
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.mobile-app {
+  margin-bottom: 100px;
+  &__container {
+    @include flex($justify: space-between, $gap: 100px);
+  }
+
+  &__content {
+    @include flex($direction: column, $justify: center, $gap: 40px);
+    max-width: 600px;
+  }
+
+  &__title {
+    @include heading-2;
+  }
+
+  &__word {
+    @include heading-2($is-accent: true);
+    color: $text-accent;
+  }
+
+  &__descr {
+    @include body-medium;
+  }
+}
+

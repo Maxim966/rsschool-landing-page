@@ -1,0 +1,45 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+@include lg {
+  .about {
+    &__content {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 40px;
+    }
+
+    &__wrapper {
+      height: 590px;
+      &:nth-child(1) {
+      grid-column: auto;
+    }
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    &:nth-child(3) {
+      grid-column: auto;
+      margin-top: 0;
+    }
+
+    &:nth-child(4) {
+      display: none;
+    }
+    }
+
+    &__image {
+      transform: scale(1.06);
+    }
+  }
+}
+
+@include mb {
+  .about {
+    &__image {
+      transform: scale(1.24);
+    }
+  }
+}

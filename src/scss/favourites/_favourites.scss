@@ -1,0 +1,20 @@
+@forward './slider';
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.favourites {
+  margin-bottom: 100px;
+  &__container {
+    text-align: center;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: 40px;
+  }
+
+  &__word {
+    @include heading-2($is-accent: true);
+    color: $text-accent;
+  }
+}

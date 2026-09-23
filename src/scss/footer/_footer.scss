@@ -1,0 +1,34 @@
+@forward './contacts';
+@forward './social';
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+    color: $text-inverse;
+  &__container {
+    @include flex($justify: space-between, $align: center, $gap: 100px);
+    background: $background-container;
+    border-radius: 40px;
+    padding: 100px;
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 530px;
+  }
+
+  &__title {
+    @include heading-2;
+    color: $text-inverse;
+  }
+
+  &__word {
+    @include heading-2($is-accent: true);
+    color: $text-accent;
+  }
+
+  &__left-content {
+    @include flex($direction: column, $gap: 40px);
+  }
+}

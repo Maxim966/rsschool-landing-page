@@ -1,0 +1,45 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+.apps {
+  @include flex($gap: 20px);
+  &__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  &__button {
+    @include flex($gap: 7px);
+    width: max-content;
+    min-width: 200px;
+    border: 1px solid $background-container;
+    border-radius: 100px;
+    padding: 12px 20px;
+    color: $text-primary;
+    transition: color .3s ease, background-color .3s ease;
+
+    @include hoverDevice {
+      &:hover {
+        background-color: $background-container;
+        .apps__subtitle,
+        .apps__title,
+        .apps__icon {
+          color: $text-inverse;
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include flex($direction: column);
+  }
+
+  &__subtitle {
+    @include body-caption;
+  }
+
+  &__title {
+    @include action-link;
+  }
+}

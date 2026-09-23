@@ -1,0 +1,22 @@
+@use './variables' as *;
+@use './breakpoints' as *;
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+@include mb {
+  .container {
+  padding-left: $container-padding-mobile;
+  padding-right: $container-padding-mobile;
+  }
+}
+
+@include xs {
+	.container {
+		width: 380px;
+	}
+}

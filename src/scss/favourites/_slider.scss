@@ -1,0 +1,112 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../breakpoints' as *;
+
+.slider {
+  @include flex($justify: center);
+  position: relative;
+  padding-bottom: 45px;
+  &__content {
+    text-align: center;
+    @include flex($direction: column, $gap: 16px);
+  }
+
+  &__list {
+    max-width: 480px;
+  }
+
+  &__item {
+    @include flex($direction: column);
+  }
+
+  &__image {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include heading-3;
+  }
+
+  &__descr {
+    @include body-medium;
+  }
+
+  &__price {
+    @include heading-3;
+  }
+
+  &__buttons {
+    @include flex($justify: space-between);
+    position: absolute;
+    width: 100%;
+    place-self: center;
+    padding: 0 5px;
+  }
+
+  &__button {
+    @include flex($justify: center, $align: center);
+    border: 1px solid $background-container;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    color: $background-container;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+
+    html[data-theme='dark'] & {
+      border-color: $text-inverse;
+      color: $text-inverse;
+    }
+
+    @include hoverDevice {
+      &:hover {
+        background-color: $background-container;
+        color: $text-inverse;
+
+        html[data-theme='dark'] & {
+          border-color: $background-container;
+        }
+      }
+    }
+  }
+  &__prev {
+      transform: rotate(180deg);
+    &--icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__next {
+    &--icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    display: flex;
+    gap: 12px;
+    align-self: center;
+    bottom: 0;
+  }
+
+  &__dot {
+    width: 40px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: $border-primary;
+
+    &--active {
+      background-color: $background-container;
+    }
+
+    html[data-theme='dark'] & {
+      background-color: $border-primary;
+
+      &--active {
+        background-color: $dark-border-inverse;
+      }
+    }
+  }
+}
+
