@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee-House</title>
     <link rel="icon" type="image/svg+xml" href="./src/assets/svg/logo.svg">
+    <script src="./js/theme-init.js"></script>
     <link rel="stylesheet" href="/src/scss/style.scss">
   </head>
     <body>
@@ -40,12 +41,12 @@
           </nav>
           <div class="header__actions">
             <div class="header__switch-theme switch-theme">
-              <button class="switch-theme__button switch-theme__button--light active">
+              <button class="switch-theme__button switch-theme__button--light active" data-theme="light">
                 <svg class="switch-theme__icon-light">
                   <use href="./spritemap.svg#Sun"></use>
                 </svg>
               </button>
-              <button class="switch-theme__button switch-theme__button--dark">
+              <button class="switch-theme__button switch-theme__button--dark" data-theme="dark">
                 <svg class="switch-theme__icon-dark">
                   <use href="./spritemap.svg#Moon"></use>
                 </svg>
