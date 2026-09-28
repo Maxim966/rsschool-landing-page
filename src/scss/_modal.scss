@@ -3,8 +3,6 @@
 @use './breakpoints' as *;
 
 .modal {
-  display: flex;
-  justify-self: center;
 	overflow: unset;
 	border: unset;
   border-radius: 40px;
@@ -12,6 +10,11 @@
 	background: $text-inverse;
 	margin: auto 40px;
   max-width: 800px;
+
+  &[open] {  
+    display: flex;
+    justify-self: center;
+  }
 
   html[data-theme='dark'] & {
     background: $background-container;

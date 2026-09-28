@@ -1,7 +1,7 @@
 import products from '../data/products.json';
 
 const cardsContainer = document.querySelector('.card__list');
-const tabsButtons = document.querySelectorAll('.tabs__button');
+const categoryButtons = document.querySelectorAll('.tabs__button[data-category]');
 
 
 function createProduct(product) {
@@ -55,7 +55,7 @@ function toggleProducts(event) {
   const activeButton = event.currentTarget;
   const category = activeButton.dataset.category;
 
-  tabsButtons.forEach((button) => {
+  categoryButtons.forEach((button) => {
     button.classList.remove('tabs__button--active');
   });
 
@@ -64,7 +64,7 @@ function toggleProducts(event) {
   createProducts(products, category);
 }
 
-tabsButtons.forEach((button) => {
+categoryButtons.forEach((button) => {
   button.addEventListener('click', toggleProducts);
 });
 
