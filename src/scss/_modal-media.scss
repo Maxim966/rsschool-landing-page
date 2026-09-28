@@ -1,0 +1,32 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './breakpoints' as *;
+
+@include md {
+  .modal {
+    margin-left: 40px;
+    margin-right: 40px;
+
+    &__buttons {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@include sm {
+  .modal {
+    margin-left: 19px;
+    margin-right: 19px;
+    width: 89%;
+    justify-content: center;
+    &__content {
+      padding: 0;
+      width: 100%;
+      max-width: max-content;
+
+    }
+    &__wrapper {
+      display: none;
+    }
+  }
+}

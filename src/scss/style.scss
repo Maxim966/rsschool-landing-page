@@ -8,6 +8,7 @@
 @forward 'about/about';
 @forward 'mobile-app/mobile-app';
 @forward 'footer/footer';
+@forward '_modal.scss';
 @forward 'menu/menu';
 @forward '_breakpoints';
 
@@ -19,3 +20,4 @@
 @import 'menu/menu-media';
 @import 'favourites/favourites-media';
 @import 'footer/footer-media';
+@import 'modal-media';

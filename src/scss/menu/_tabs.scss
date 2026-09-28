@@ -17,6 +17,10 @@
       background-color: $background-container;
       color: $text-inverse;
       border-color: $background-container;
+
+      html[data-theme='dark'] & {
+        border-color: $dark-bg-modal-control;
+      }
       pointer-events: none;
       .tabs__icon {
         background: $text-inverse;
