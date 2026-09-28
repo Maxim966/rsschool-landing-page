@@ -20,3 +20,10 @@
 		width: 380px;
 	}
 }
+
+.stop-scroll {
+	position: fixed;
+	width: 100%;
+	overflow: hidden;
+	height: 100vh;
+}
