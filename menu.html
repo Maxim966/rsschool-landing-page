@@ -166,15 +166,16 @@
         </div>
       </footer>
       <dialog class="modal">
-        <div class="modal__wrapper">
-          <img src="./src/assets/images/coffee-1.jpg" alt="coffee-1">
+        <div class="modal__wrapper card__wrap">
+          <img class="modal__image" src="./src/assets/images/coffee-1.jpg" alt="coffee-1">
         </div>
         <div class="modal__content">
           <h3 class="modal__title">Irish coffee</h3>
           <p class="modal__descr">Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
           <div class="modal__size-buttons">
             <span class="modal__name">Size</span>
-            <button type="button" class="tabs__button modal__size-button modal__button--active">
+            <div class="modal__buttons">
+              <button type="button" class="tabs__button modal__size-button modal__button--active">
               <span class="tabs__icon">S</span>
               <span class="tabs__text">200 ml</span>
             </button>
@@ -186,10 +187,12 @@
               <span class="tabs__icon">L</span>
               <span class="tabs__text">400 ml</span>
             </button>
+            </div> 
           </div>
           <div class="modal__additives-buttons">
             <span class="modal__name">Additives</span>
-            <button type="button" class="tabs__button modal__size-button">
+            <div class="modal__buttons">
+              <button type="button" class="tabs__button modal__size-button">
               <span class="tabs__icon">S</span>
               <span class="tabs__text">Sugar</span>
             </button>
@@ -201,6 +204,7 @@
               <span class="tabs__icon">L</span>
               <span class="tabs__text">Syrup</span>
             </button>
+            </div>
           </div>
           <div class="modal__total">
             <span class="modal__header">Total:</span>

@@ -1,0 +1,167 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './breakpoints' as *;
+
+.modal {
+  display: flex;
+  justify-self: center;
+	overflow: unset;
+	border: unset;
+  border-radius: 40px;
+  padding: 16px;
+	background: $text-inverse;
+	margin: auto 40px;
+  max-width: 800px;
+
+  html[data-theme='dark'] & {
+    background: $background-container;
+  }
+
+  &__wrapper {
+    flex: 0 1 310px;
+    min-width: 310px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.1);
+    transform-origin: center center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+    gap: 20px;
+    max-width: 458px;
+    min-width: 0;
+    flex: 1 1 458px;
+  }
+
+  &__title {
+    @include heading-3;
+  }
+
+  &__descr {
+    @include body-medium;
+  }
+
+  &__name {
+    @include body-medium;
+  }
+
+  &__additives-buttons, 
+  &__size-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__size-button {
+    color: $text-primary;
+
+    @include hoverDevice {
+        &:hover {
+          html[data-theme='dark'] & {
+            background-color: $dark-bg-modal-control;
+            color: $text-primary;
+            .tabs__icon {
+              background-color: $background-container;
+            }
+          }
+        }
+      }
+    }
+
+    .tabs__icon {
+      transition: background-color .3s ease;
+      color: $text-primary;
+      background-color: $border-primary;
+
+    @include hoverDevice {
+      &:hover {
+        background-color: $background-container;
+        color: $text-inverse;
+        .tabs__icon {
+            color: $text-primary;
+            background: $text-inverse;
+          }
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__header,
+  &__price {
+    @include heading-3;
+  }
+
+  &__caption {
+    @include body-caption;
+    border-top: 1px solid $border-primary;
+    padding: 12px 0 12px 23px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: $text-primary;
+      mask-image: url(../assets/svg/info-empty.svg);
+      mask-size: 16px 16px;
+      mask-repeat: no-repeat;
+      mask-position: left top;
+      -webkit-mask-image: url(../assets/svg/info-empty.svg);
+      -webkit-mask-size: 16px 16px;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: left top;
+    }
+  }
+
+  &__close {
+    border: 1px solid $border-primary;
+    border-radius: 100px;
+    padding: 10px 78px;
+    width: 100%;
+    text-transform: none;
+    color: $text-primary;
+    background-color: transparent;
+    transition: color .3s ease, background-color .3s ease, border-color .3s ease;
+
+    // html[data-theme='dark'] & {
+    //   border: 1px solid $dark-border-primary;
+    // }
+
+    &:hover {
+      color: $text-inverse;
+      background-color: $background-container;
+    }
+
+    html[data-theme='dark'] &:hover {
+      background-color: $dark-bg-modal-control;
+      border-color: $dark-bg-modal-control;
+    }
+  }
+
+
+  &::backdrop {
+		background-color: $background-overlay;
+	}
+}
