@@ -65,7 +65,8 @@
     gap: 8px;
   }
 
-  &__size-button {
+  &__size-button,
+  &__additive-button {
     color: $text-primary;
 
     @include hoverDevice {
@@ -102,6 +103,36 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+  }
+
+  &__button {
+    &--active {
+      background-color: $background-container;
+      color: $text-inverse;
+      border-color: $background-container;
+      pointer-events: none;
+
+      html[data-theme='dark'] & {
+        background-color: $dark-bg-modal-control;
+
+        .tabs__icon {
+          color: $text-primary;
+          background: $hero-button-text;
+        }
+
+        .tabs__text {
+          color: $hero-button-background;
+        }
+            
+      }
+      .tabs__icon {
+        background: $text-inverse;
+      }
+
+      .tabs__text {
+        color: $text-inverse;
+      }
+    }
   }
 
   &__total {

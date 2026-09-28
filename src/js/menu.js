@@ -7,6 +7,7 @@ const categoryButtons = document.querySelectorAll('.tabs__button[data-category]'
 function createProduct(product) {
   const li = document.createElement('li');
   li.classList.add('card__item');
+  li.dataset.name = product.name;
 
   const div1 = document.createElement('div');
   div1.classList.add('card__wrap');
@@ -49,6 +50,10 @@ function createProducts(products, category) {
     .forEach((item) => {
       cardsContainer.append(createProduct(item));
     });
+}
+
+export function getProduct(products, name) {
+  return products.find((item) => item.name === name);
 }
 
 function toggleProducts(event) {
