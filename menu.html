@@ -16,7 +16,8 @@
           <a href="index.html" class="logo">
             <img src="/rsschool-landing-page/assets/logo.svg" alt="logo">
           </a>
-          <nav class="header__nav nav">
+          <div class="header__wrapper-nav">
+              <nav class="header__nav nav">
             <ul class="nav__list">
               <li class="nav__item">
                 <a href="index.html#favourites" class="nav__link">
@@ -40,6 +41,15 @@
               </li>
             </ul>
           </nav>
+            <div class="header__coffee-menu header__coffee-menu--mobile">
+              <a href="menu.html" class="header__coffee-menu-link">
+                <span>Menu</span>
+                <svg class="header__coffee-menu--icon">
+                  <use href="./spritemap.svg#coffee-cup"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
           <div class="header__actions">
             <div class="header__switch-theme switch-theme">
               <button class="switch-theme__button switch-theme__button--light active" data-theme="light">

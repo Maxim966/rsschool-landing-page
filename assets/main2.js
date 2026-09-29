@@ -230,7 +230,7 @@ var currentProduct = null;
 var selectedSize = "s";
 var selectedAdditive = null;
 var modal = document.querySelector(".modal");
-var body = document.body;
+var body$1 = document.body;
 var html = document.documentElement;
 var modalCloseButton = modal?.querySelector(".modal__close");
 var cardsContainer = document.querySelector(".card__list");
@@ -313,8 +313,8 @@ function openProductModal(event) {
 	const card = event.target.closest(".card__item");
 	if (card && modal) {
 		scrollPosition = window.pageYOffset;
-		body.classList.add("stop-scroll");
-		body.style.top = `-${scrollPosition}px`;
+		body$1.classList.add("stop-scroll");
+		body$1.style.top = `-${scrollPosition}px`;
 		const productName = card.dataset.name;
 		fillModalData(getProduct(products_default, productName));
 		modal.showModal();
@@ -323,8 +323,8 @@ function openProductModal(event) {
 function closeModal() {
 	html.style.scrollBehavior = "auto";
 	modal?.close();
-	body.classList.remove("stop-scroll");
-	body.style.top = "";
+	body$1.classList.remove("stop-scroll");
+	body$1.style.top = "";
 	window.scrollTo(0, scrollPosition);
 	html.style.scrollBehavior = "";
 }
@@ -359,6 +359,31 @@ additiveButtonsContainer?.addEventListener("click", (event) => {
 	});
 	calculateTotal();
 });
+//#endregion
+//#region src/js/burger.js
+var body = document.body;
+var menu = document.querySelector(".header__wrapper-nav");
+var btnOpen = document.querySelector(".burger");
+var links = document.querySelectorAll(".nav__link");
+function toggleMenu() {
+	const isOpen = !menu.classList.contains("active");
+	menu.classList.toggle("active");
+	btnOpen.classList.toggle("active");
+	body.classList.toggle("stop-scroll", isOpen);
+}
+function closeMenu() {
+	menu.classList.remove("active");
+	body.classList.remove("stop-scroll");
+	btnOpen.classList.remove("active");
+}
+function clearMenu() {
+	if (document.documentElement.offsetWidth > 992) closeMenu();
+}
+btnOpen.addEventListener("click", toggleMenu);
+links.forEach((link) => {
+	link.addEventListener("click", closeMenu);
+});
+window.addEventListener("resize", clearMenu);
 //#endregion
 
 //# sourceMappingURL=main2.js.map
