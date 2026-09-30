@@ -644,6 +644,7 @@ html[data-theme=dark] .burger__line {
   flex-wrap: nowrap;
   position: relative;
   padding-bottom: 45px;
+  overflow: hidden;
 }
 .slider__content {
   text-align: center;
@@ -655,9 +656,19 @@ html[data-theme=dark] .burger__line {
   flex-wrap: nowrap;
 }
 .slider__list {
-  max-width: 480px;
+  display: flex;
+  width: 100%;
+  touch-action: pan-y;
+  transition: transform 0.3s ease;
 }
 .slider__item {
+  flex: 0 0 100%;
+  width: 100%;
+  justify-items: center;
+}
+.slider__wrapper {
+  max-width: 480px;
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -667,6 +678,7 @@ html[data-theme=dark] .burger__line {
 }
 .slider__image {
   margin-bottom: 20px;
+  pointer-events: none;
 }
 .slider__title {
   font-family: "Inter", sans-serif;
