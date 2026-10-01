@@ -234,6 +234,8 @@ var body$1 = document.body;
 var html = document.documentElement;
 var modalCloseButton = modal?.querySelector(".modal__close");
 var cardsContainer = document.querySelector(".card__list");
+var menuRefresh = document.querySelector(".menu__refresh");
+var cards = cardsContainer?.querySelectorAll(".card__item");
 var modalTitle = modal?.querySelector(".modal__title");
 var modalDescr = modal?.querySelector(".modal__descr");
 var modalImage = modal?.querySelector(".modal__image");
@@ -359,6 +361,13 @@ additiveButtonsContainer?.addEventListener("click", (event) => {
 	});
 	calculateTotal();
 });
+menuRefresh.addEventListener("click", () => {
+	cards.forEach((item) => item.style.display = "flex");
+	menuRefresh.style.display = "none";
+});
+document.addEventListener("keydown", (ev) => {
+	if (ev.key === "Escape") closeModal();
+});
 //#endregion
 //#region src/js/burger.js
 var body = document.body;
@@ -380,6 +389,9 @@ function clearMenu() {
 	if (document.documentElement.offsetWidth > 992) closeMenu();
 }
 btnOpen.addEventListener("click", toggleMenu);
+document.addEventListener("keydown", (ev) => {
+	if (ev.key === "Escape") closeMenu();
+});
 links.forEach((link) => {
 	link.addEventListener("click", closeMenu);
 });
