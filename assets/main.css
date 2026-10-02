@@ -1620,6 +1620,7 @@ html[data-theme=dark] {
     align-items: center;
     justify-content: center;
     position: fixed;
+    z-index: 10;
     gap: 100px;
     padding: 0;
     padding-top: 100px;

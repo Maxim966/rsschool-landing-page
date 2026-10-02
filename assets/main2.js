@@ -361,7 +361,7 @@ additiveButtonsContainer?.addEventListener("click", (event) => {
 	});
 	calculateTotal();
 });
-menuRefresh.addEventListener("click", () => {
+if (menuRefresh) menuRefresh.addEventListener("click", () => {
 	cards.forEach((item) => item.style.display = "flex");
 	menuRefresh.style.display = "none";
 });
@@ -398,71 +398,77 @@ links.forEach((link) => {
 window.addEventListener("resize", clearMenu);
 //#endregion
 //#region src/js/slider.js
-var slider = document.querySelector(".slider");
-var sliderList = slider?.querySelector(".slider__list");
-var realItems = [...sliderList.querySelectorAll(".slider__item")];
-var dots = [...slider?.querySelectorAll(".slider__dot")];
-var btnNext = slider?.querySelector(".slider__next");
-var btnPrev = slider?.querySelector(".slider__prev");
-var index = 0;
-var count = realItems.length;
-var startX = 0;
-var currentX = 0;
-var dragging = false;
-function getItemWidth() {
-	return realItems[0].clientWidth;
-}
-function updateDots() {
-	dots.forEach((item, idx) => {
-		item.classList.toggle("slider__dot--active", idx === index);
+function initSlider() {
+	const slider = document.querySelector(".slider");
+	if (!slider) return;
+	const sliderList = slider.querySelector(".slider__list");
+	if (!sliderList) return;
+	const realItems = [...sliderList.querySelectorAll(".slider__item")];
+	if (realItems.length === 0) return;
+	const dots = [...slider.querySelectorAll(".slider__dot")];
+	const btnNext = slider.querySelector(".slider__next");
+	const btnPrev = slider.querySelector(".slider__prev");
+	let index = 0;
+	const count = realItems.length;
+	let startX = 0;
+	let currentX = 0;
+	let dragging = false;
+	function getItemWidth() {
+		return realItems[0].clientWidth;
+	}
+	function updateDots() {
+		dots.forEach((item, idx) => {
+			item.classList.toggle("slider__dot--active", idx === index);
+		});
+	}
+	function goTo(i) {
+		index = (i + count) % count;
+		sliderList.style.transition = "transform .4s ease";
+		sliderList.style.transform = `translateX(-${index * getItemWidth()}px)`;
+		updateDots();
+	}
+	function onPointerDown(e) {
+		dragging = true;
+		startX = e.clientX;
+		currentX = 0;
+		sliderList.style.transition = "none";
+		sliderList.setPointerCapture(e.pointerId);
+	}
+	function onPointerMove(e) {
+		if (!dragging) return;
+		currentX = e.clientX - startX;
+		const base = -index * getItemWidth();
+		sliderList.style.transform = `translateX(${base + currentX}px)`;
+	}
+	function onPointerUp() {
+		if (!dragging) return;
+		dragging = false;
+		const threshold = getItemWidth() * .2;
+		if (currentX < -threshold) goTo(index + 1);
+		else if (currentX > threshold) goTo(index - 1);
+		else goTo(index);
+		currentX = 0;
+	}
+	function onPointerCancel() {
+		if (!dragging) return;
+		dragging = false;
+		goTo(index);
+	}
+	sliderList.addEventListener("pointerdown", onPointerDown);
+	sliderList.addEventListener("pointermove", onPointerMove);
+	sliderList.addEventListener("pointerup", onPointerUp);
+	sliderList.addEventListener("pointercancel", onPointerCancel);
+	window.addEventListener("resize", () => {
+		sliderList.style.transition = "none";
+		goTo(index);
+		requestAnimationFrame(() => {
+			sliderList.style.transition = "";
+		});
 	});
+	btnNext?.addEventListener("click", () => goTo(index + 1));
+	btnPrev?.addEventListener("click", () => goTo(index - 1));
 }
-function goTo(i) {
-	index = (i + count) % count;
-	sliderList.style.transition = "transform .4s ease";
-	sliderList.style.transform = `translateX(-${index * getItemWidth()}px)`;
-	updateDots();
-}
-function onPointerDown(e) {
-	dragging = true;
-	startX = e.clientX;
-	currentX = 0;
-	sliderList.style.transition = "none";
-	sliderList.setPointerCapture(e.pointerId);
-}
-function onPointerMove(e) {
-	if (!dragging) return;
-	currentX = e.clientX - startX;
-	const base = -index * getItemWidth();
-	sliderList.style.transform = `translateX(${base + currentX}px)`;
-}
-function onPointerUp() {
-	if (!dragging) return;
-	dragging = false;
-	const threshold = getItemWidth() * .2;
-	if (currentX < -threshold) goTo(index + 1);
-	else if (currentX > threshold) goTo(index - 1);
-	else goTo(index);
-	currentX = 0;
-}
-function onPointerCancel() {
-	if (!dragging) return;
-	dragging = false;
-	goTo(index);
-}
-sliderList.addEventListener("pointerdown", onPointerDown);
-sliderList.addEventListener("pointermove", onPointerMove);
-sliderList.addEventListener("pointerup", onPointerUp);
-sliderList.addEventListener("pointercancel", onPointerCancel);
-window.addEventListener("resize", () => {
-	sliderList.style.transition = "none";
-	goTo(index);
-	requestAnimationFrame(() => {
-		sliderList.style.transition = "";
-	});
-});
-btnNext.addEventListener("click", () => goTo(index + 1));
-btnPrev.addEventListener("click", () => goTo(index - 1));
+initSlider();
 //#endregion
 
 //# sourceMappingURL=main2.js.map
